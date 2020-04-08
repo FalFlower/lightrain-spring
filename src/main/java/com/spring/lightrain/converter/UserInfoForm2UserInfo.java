@@ -13,6 +13,7 @@ public class UserInfoForm2UserInfo {
         age=2020-Integer.parseInt(bir[0]);
         return new UserInfo(form.getUsername(),form.getPassword(),form.getNickName(),
                 form.getUserIcon(),Integer.parseInt(form.getUserGender()),form.getUserBirthday(),age,
-                form.getUserSchool(),status);
+                form.getUserSchool(),status,form.getUserSign(),form.getUserLocation(),
+                Integer.parseInt(form.getUserIdentity()));
     }
 }

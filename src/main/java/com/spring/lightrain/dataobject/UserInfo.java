@@ -28,6 +28,12 @@ public class UserInfo {
 
     private int userStatus;
 
+    private String userSign;
+
+    private String userLocation;
+
+    private int userIdentity;
+
     public UserInfo() {
     }
 
@@ -36,7 +42,7 @@ public class UserInfo {
         this.password=password;
     }
 
-    public UserInfo(String username, String password, String nickname, String userIcon, int userGender, String userBirthday, int userAge, String userSchool, int userStatus) {
+    public UserInfo(String username, String password, String nickname, String userIcon, int userGender, String userBirthday, int userAge, String userSchool, int userStatus, String userSign, String userLocation, int userIdentity) {
         this.username = username;
         this.password = password;
         this.nickname = nickname;
@@ -46,9 +52,12 @@ public class UserInfo {
         this.userAge = userAge;
         this.userSchool = userSchool;
         this.userStatus = userStatus;
+        this.userSign = userSign;
+        this.userLocation = userLocation;
+        this.userIdentity = userIdentity;
     }
 
-    public UserInfo(String nickname, String userIcon, int userGender, String userBirthday, int userAge, String userSchool, int userStatus) {
+    public UserInfo(String nickname, String userIcon, int userGender, String userBirthday, int userAge, String userSchool, int userStatus, String userSign, String userLocation, int userIdentity) {
         this.nickname = nickname;
         this.userIcon = userIcon;
         this.userGender = userGender;
@@ -56,5 +65,8 @@ public class UserInfo {
         this.userAge = userAge;
         this.userSchool = userSchool;
         this.userStatus = userStatus;
+        this.userSign = userSign;
+        this.userLocation = userLocation;
+        this.userIdentity = userIdentity;
     }
 }

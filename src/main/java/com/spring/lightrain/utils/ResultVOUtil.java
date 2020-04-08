@@ -5,7 +5,6 @@ import com.spring.lightrain.VO.ResultVO;
 public class ResultVOUtil  {
     private static Integer SUCCESS=100;
     public static ResultVO success(Object object){
-
         return new ResultVO(SUCCESS,"success",object);
     }
 

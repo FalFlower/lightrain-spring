@@ -1,7 +1,11 @@
 package com.spring.lightrain.exception;
 
 import com.spring.lightrain.enums.ResultEnum;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
+@EqualsAndHashCode(callSuper = true)
+@Data
 public class RainException extends RuntimeException {
     private Integer code;
     private String message;
@@ -11,7 +15,8 @@ public class RainException extends RuntimeException {
     }
 
     public RainException(ResultEnum resultEnum) {
-        super(resultEnum.getMessage());
+        //super(resultEnum.getMessage());
         this.code = resultEnum.getCode();
+        this.message=resultEnum.getMessage();
     }
 }

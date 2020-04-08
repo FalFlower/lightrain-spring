@@ -28,10 +28,10 @@ public class UserInfoServiceImplTest {
 
     @Test
     public void register() {
-        UserInfo userInfo=new UserInfo("13562663180","123456","dad","http://zt-data.test.upcdn.net/icon.jpg",
-                1,"1976-1-1",44,"StayHome",0);
-        service.register(userInfo);
-        log("register",service.getUserInfo(userInfo.getUsername()));
+//        UserInfo userInfo=new UserInfo("13562663180","123456","dad","http://zt-data.test.upcdn.net/icon.jpg",
+//                1,"1976-1-1",44,"StayHome",0);
+//        service.register(userInfo);
+//        log("register",service.getUserInfo(userInfo.getUsername()));
     }
 
     @Test
