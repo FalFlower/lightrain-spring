@@ -167,23 +167,45 @@ public class VideoController {
     /*
     * 视频匹配
     * */
-    @GetMapping("match/label")
-    public ResultVO<List<VideoForm>> matchByLabel(@RequestParam("videoLabel") String label){
+//    @GetMapping("match/label")
+//    public ResultVO<List<VideoForm>> matchByLabel(@RequestParam("videoLabel") String label){
+//        List<Video> list=new ArrayList<>();
+//        for (Video video : service.findAllVideo()) {
+//            if (video.getVideoLabel().contains(label)){
+//                list.add(video);
+//            }
+//        }
+//        if (list.isEmpty()){
+//            throw new RainException(ResultEnum.MATCH_FAILED);
+//        }
+//        return ResultVOUtil.success(list);
+//    }
+//
+//    @GetMapping("match/teacher")
+//    public ResultVO<List<VideoForm>> matchByUsername(@RequestParam("username") String username){
+//        List<Video> list=service.findTeacherAllVideo(username);
+//        if (list.isEmpty()){
+//            throw new RainException(ResultEnum.MATCH_FAILED);
+//        }
+//        return ResultVOUtil.success(list);
+//    }
+
+    @GetMapping("match")
+    public ResultVO<List<VideoForm>> videoMatch(@RequestParam("search") String search){
         List<Video> list=new ArrayList<>();
         for (Video video : service.findAllVideo()) {
-            if (video.getVideoLabel().contains(label)){
+            //label
+            if (video.getVideoLabel().contains(search)){
+                list.add(video);
+            }else if (video.getUsername().equals(search)){
+                //teacherID
+                list.add(video);
+            }else if (video.getVideoTitle().contains(search)){
+                //title
                 list.add(video);
             }
         }
-        if (list.isEmpty()){
-            throw new RainException(ResultEnum.MATCH_FAILED);
-        }
-        return ResultVOUtil.success(list);
-    }
 
-    @GetMapping("match/teacher")
-    public ResultVO<List<VideoForm>> matchByUsername(@RequestParam("username") String username){
-        List<Video> list=service.findTeacherAllVideo(username);
         if (list.isEmpty()){
             throw new RainException(ResultEnum.MATCH_FAILED);
         }
