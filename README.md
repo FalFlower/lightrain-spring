@@ -1,11 +1,11 @@
 # lightrain-spring
 使用springboot为轻雨而搭建的后台
-
 # 轻雨（light-rain）文档
 
+### IP地址：端口
 
 ```
-
+120.78.219.199:8080
 ```
 
 
@@ -139,8 +139,6 @@ userSchool=StayHome
     "msg": "success"
 }
 ```
-
-
 
 
 
@@ -294,7 +292,7 @@ videoId=1586222544066616229
 ### 获取全部视频
 
 ```
-POST /lr/info/all
+POST /lr/video/info/all
 ```
 
 参数：
@@ -358,7 +356,7 @@ POST /lr/info/all
 ### 更新视频（上传、改参等）
 
 ```
-POST /lr/update
+POST /lr/video/update
 ```
 
 参数：
@@ -633,16 +631,16 @@ username=15244482896
 
 
 
-### 搜索匹配——标签
+### 搜索匹配——（标签、教师ID、标题）
 
 ```
-GET /lr/video/match/label
+GET /lr/video/match
 ```
 
 参数：
 
 ```
-videoLabel=化学
+search=我
 ```
 
 返回
@@ -653,141 +651,60 @@ videoLabel=化学
     "msg": "success",
     "data": [
         {
-            "videoId": "1586224145897916412",
-            "username": "10000000008",
-            "videoTitle": "化学是一门以实验为基础的科学-九年级上",
-            "videoBrief": "为大家提供化学是一门以实验为基础的初中教案相关内容",
+            "videoId": "1586222544066616229",
+            "username": "10000000000",
+            "videoTitle": "这就是我-七年级上",
+            "videoBrief": "刚入初中，面对新老师、新同学，来一番自我介绍。要抓住自己的主要特征、兴趣、爱好等，用第一人称将自己的自画像描绘出来，尽量做到文笔生动活泼",
             "videoScoreAva": 10.0,
-            "videoTime": 812,
+            "videoTime": 2021,
+            "videoPrice": 0.0,
+            "videoLearningNum": 1,
+            "videoIcon": "http://zt-data.test.upcdn.net/cover/composition/composition_grade_seven_up1.png",
+            "videoUrl": "http://zt-data.test.upcdn.net/video/composition/composition_grade_seven_up1.avi",
+            "videoLabel": "作文;七年级"
+        },
+        {
+            "videoId": "1586223273526698507",
+            "username": "10000000006",
+            "videoTitle": "保护自我-七年级上",
+            "videoBrief": "青少年为什么要加强自我保护，树立自我保护意识？",
+            "videoScoreAva": 10.0,
+            "videoTime": 1907,
             "videoPrice": 0.0,
             "videoLearningNum": 0,
-            "videoIcon": "http://zt-data.test.upcdn.net/cover/chemistry/chemistry_grade_nine_up0.png",
-            "videoUrl": "http://zt-data.test.upcdn.net/video/chemistry/chemistry_grade_nine_up1.avi",
-            "videoLabel": "化学;九年级"
+            "videoIcon": "http://zt-data.test.upcdn.net/cover/politics/politics_grade_seven_up1.png",
+            "videoUrl": "http://zt-data.test.upcdn.net/video/politics/politics_grade_seven_up1.mp4",
+            "videoLabel": "政治;七年级"
         },
         {
-            "videoId": "1586224152938714094",
-            "username": "10000000008",
-            "videoTitle": "走进化学实验室-九年级上",
-            "videoBrief": "认识学习化学的一个重要途径是实验，初步学会对实验现象进行观察和描述的方法。",
+            "videoId": "1586223330316625692",
+            "username": "10000000006",
+            "videoTitle": "我们应尽的义务-八年级下",
+            "videoBrief": "什么是法定义务?什么是道德义务? 什么是公民的基本义务?它的具体内容包括哪些",
             "videoScoreAva": 10.0,
-            "videoTime": 1106,
-            "videoPrice": 39.9,
+            "videoTime": 2232,
+            "videoPrice": 19.9,
             "videoLearningNum": 0,
-            "videoIcon": "http://zt-data.test.upcdn.net/cover/chemistry/chemistry_grade_nine_up2.png",
-            "videoUrl": "http://zt-data.test.upcdn.net/video/chemistry/chemistry_grade_nine_up2.avi",
-            "videoLabel": "化学;九年级"
+            "videoIcon": "http://zt-data.test.upcdn.net/cover/politics/politics_grade_eight_down2.png",
+            "videoUrl": "http://zt-data.test.upcdn.net/video/politics/politics_grade_eight_down2.mp4",
+            "videoLabel": "政治;八年级"
         },
         {
-            "videoId": "1586224159323712872",
-            "username": "10000000008",
-            "videoTitle": "燃烧条件的探究-九年级下",
-            "videoBrief": "认识燃烧;知道燃烧和燃烧的条件;能利用燃烧条件解释一些日常生活中的现象.",
+            "videoId": "1586223542444627005",
+            "username": "10000000001",
+            "videoTitle": "我用残损的手掌-九年级下",
+            "videoBrief": "提高学生诗歌朗读技巧和诗歌欣赏水平；有感情地诵读诗歌，品味语言。",
             "videoScoreAva": 10.0,
-            "videoTime": 319,
+            "videoTime": 936,
             "videoPrice": 39.9,
             "videoLearningNum": 0,
-            "videoIcon": "http://zt-data.test.upcdn.net/cover/chemistry/chemistry_grade_nine_down1.png",
-            "videoUrl": "http://zt-data.test.upcdn.net/video/chemistry/chemistry_grade_nine_down1.avi",
-            "videoLabel": "化学;九年级"
-        },
-        {
-            "videoId": "1586224169808317078",
-            "username": "10000000008",
-            "videoTitle": "白磷的自然现象-九年级下",
-            "videoBrief": "白磷为白色蜡状固体，遇光会逐渐变为淡黄色晶体（所以又称为黄磷），有大蒜的气味，有毒。着火点很低，能自燃，在空气中发光。",
-            "videoScoreAva": 10.0,
-            "videoTime": 367,
-            "videoPrice": 39.9,
-            "videoLearningNum": 0,
-            "videoIcon": "http://zt-data.test.upcdn.net/cover/chemistry/chemistry_grade_nine_down2.png",
-            "videoUrl": "http://zt-data.test.upcdn.net/video/chemistry/chemistry_grade_nine_down2.avi",
-            "videoLabel": "化学;九年级"
+            "videoIcon": "http://zt-data.test.upcdn.net/cover/chinese/chinese_grade_nine_down2.png",
+            "videoUrl": "http://zt-data.test.upcdn.net/video/chinese/chinese_grade_nine_down2.avi",
+            "videoLabel": "语文;九年级"
         }
     ]
 }
 ```
-
-
-
-
-
-### 搜索匹配——教师ID
-
-```
-GET /lr/video/match/teacher
-```
-
-参数：
-
-```
-username=10000000008
-```
-
-返回
-
-```
-{
-    "code": 100,
-    "msg": "success",
-    "data": [
-        {
-            "videoId": "1586224145897916412",
-            "username": "10000000008",
-            "videoTitle": "化学是一门以实验为基础的科学-九年级上",
-            "videoBrief": "为大家提供化学是一门以实验为基础的初中教案相关内容",
-            "videoScoreAva": 10.0,
-            "videoTime": 812,
-            "videoPrice": 0.0,
-            "videoLearningNum": 0,
-            "videoIcon": "http://zt-data.test.upcdn.net/cover/chemistry/chemistry_grade_nine_up0.png",
-            "videoUrl": "http://zt-data.test.upcdn.net/video/chemistry/chemistry_grade_nine_up1.avi",
-            "videoLabel": "化学;九年级"
-        },
-        {
-            "videoId": "1586224152938714094",
-            "username": "10000000008",
-            "videoTitle": "走进化学实验室-九年级上",
-            "videoBrief": "认识学习化学的一个重要途径是实验，初步学会对实验现象进行观察和描述的方法。",
-            "videoScoreAva": 10.0,
-            "videoTime": 1106,
-            "videoPrice": 39.9,
-            "videoLearningNum": 0,
-            "videoIcon": "http://zt-data.test.upcdn.net/cover/chemistry/chemistry_grade_nine_up2.png",
-            "videoUrl": "http://zt-data.test.upcdn.net/video/chemistry/chemistry_grade_nine_up2.avi",
-            "videoLabel": "化学;九年级"
-        },
-        {
-            "videoId": "1586224159323712872",
-            "username": "10000000008",
-            "videoTitle": "燃烧条件的探究-九年级下",
-            "videoBrief": "认识燃烧;知道燃烧和燃烧的条件;能利用燃烧条件解释一些日常生活中的现象.",
-            "videoScoreAva": 10.0,
-            "videoTime": 319,
-            "videoPrice": 39.9,
-            "videoLearningNum": 0,
-            "videoIcon": "http://zt-data.test.upcdn.net/cover/chemistry/chemistry_grade_nine_down1.png",
-            "videoUrl": "http://zt-data.test.upcdn.net/video/chemistry/chemistry_grade_nine_down1.avi",
-            "videoLabel": "化学;九年级"
-        },
-        {
-            "videoId": "1586224169808317078",
-            "username": "10000000008",
-            "videoTitle": "白磷的自然现象-九年级下",
-            "videoBrief": "白磷为白色蜡状固体，遇光会逐渐变为淡黄色晶体（所以又称为黄磷），有大蒜的气味，有毒。着火点很低，能自燃，在空气中发光。",
-            "videoScoreAva": 10.0,
-            "videoTime": 367,
-            "videoPrice": 39.9,
-            "videoLearningNum": 0,
-            "videoIcon": "http://zt-data.test.upcdn.net/cover/chemistry/chemistry_grade_nine_down2.png",
-            "videoUrl": "http://zt-data.test.upcdn.net/video/chemistry/chemistry_grade_nine_down2.avi",
-            "videoLabel": "化学;九年级"
-        }
-    ]
-}
-```
-
-
 
 
 
