@@ -12,6 +12,8 @@ public enum ResultEnum {
     UPDATE_USER_RELATIONSHIP_FAILED(117,"更新用户关系失败"),
     GET_USER_RELATIONSHIP_FAILED(118,"获取用户关系失败"),
     USER_EXITS(119,"用户已存在，请勿重复注册"),
+    FOLLOW_USER_RELATIONSHIP_FAILED(120,"关注失败，用户ID错误或者用户不存在"),
+    UN_FOLLOW_USER_RELATIONSHIP_FAILED(121,"取消关注失败，用户ID错误或者用户不存在"),
     UPDATE_VIDEO_FAILED(200,"上传视频失败"),
     UPDATE_VIDEO_EVALUATE_FAILED(201,"更新用户视频评分失败"),
     VIDEO_EVALUATE_EXITS(202,"用户已评价，请勿重复评价"),

@@ -18,6 +18,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Map;
 
 @RestController//返回json格式
@@ -69,6 +70,47 @@ public class UserInfoController {
     }
 
     //用户关系
+    @PostMapping("relationship/follow")
+    public ResultVO<UserRelationship> follow(@RequestParam("username") String username,
+                                             @RequestParam("userFollow") String userFollow){
+        //更新个人用户关系表
+        System.out.println("!!!!!!!!!!!!username"+username);
+        UserRelationship relationship=relationshipService.getUserRelationship(username);
+        if (relationship==null)
+            throw new RainException(ResultEnum.FOLLOW_USER_RELATIONSHIP_FAILED);
+        relationship.setUserFollowsNum(relationship.getUserFollowsNum()+1);
+        relationship.setUserFollows(relationship.getUserFollows()+";"+userFollow);
+        //更新对应用户关系表
+        UserRelationship otherRelationship=relationshipService.getUserRelationship(userFollow);
+        if (otherRelationship==null)
+            throw new RainException(ResultEnum.UN_FOLLOW_USER_RELATIONSHIP_FAILED);
+        otherRelationship.setUserFansNum(relationship.getUserFansNum()+1);
+        otherRelationship.setUserFans(relationship.getUserFans()+";"+userFollow);
+        relationshipService.update(otherRelationship);
+
+        return ResultVOUtil.success(relationshipService.update(relationship));
+    }
+
+    @PostMapping("relationship/unFollow")
+    public ResultVO<UserRelationship> unFollow(@RequestParam("username") String username,
+                                               @RequestParam("userFollow") String userFollow){
+        //更新个人用户关系表
+        UserRelationship relationship=relationshipService.getUserRelationship(username);
+        if (relationship==null)
+            throw new RainException(ResultEnum.FOLLOW_USER_RELATIONSHIP_FAILED);
+        relationship.setUserFollowsNum(relationship.getUserFollowsNum()-1);
+        relationship.setUserFollows(removeUserRelationshipList(relationship.getUserFollows(),userFollow));
+        //更新对应用户关系表
+        UserRelationship otherRelationship=relationshipService.getUserRelationship(userFollow);
+        if (otherRelationship==null)
+            throw new RainException(ResultEnum.UN_FOLLOW_USER_RELATIONSHIP_FAILED);
+        otherRelationship.setUserFansNum(relationship.getUserFansNum()-1);
+        otherRelationship.setUserFans(removeUserRelationshipList(relationship.getUserFans(),userFollow));
+        relationshipService.update(otherRelationship);
+
+        return ResultVOUtil.success(relationshipService.update(relationship));
+    }
+
     @PostMapping("relationship/update")
     public ResultVO<UserRelationship> update(@Valid UserRelationshipForm relationship, BindingResult bindingResult){
         if (bindingResult.hasErrors()){
@@ -93,6 +135,18 @@ public class UserInfoController {
         }else
             throw new RainException(ResultEnum.GET_USER_RELATIONSHIP_FAILED);
     }
-
+    //移除用户关系中粉丝、关注、收藏字段
+    private String removeUserRelationshipList(String data,String remove){
+        String regex = ";";
+        String[] list=data.split(regex);
+        StringBuilder msg= new StringBuilder();
+        for (String s : list) {
+            if (!s.equals("")){
+                if (!s.equals(remove))
+                    msg.append(s).append(regex);
+            }
+        }
+        return msg.toString();
+    }
 
 }
